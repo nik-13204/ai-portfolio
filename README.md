@@ -1,36 +1,95 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🤖 AI Portfolio — Nikhil Saini
 
-## Getting Started
+An intelligent, AI-powered personal portfolio built with **Next.js**, **LangChain**, **DataStax Astra DB**, and **Hugging Face Inference API**. Ask questions and get real-time responses based on your actual projects and experience — powered by Retrieval-Augmented Generation (RAG).
 
-First, run the development server:
+---
+![alt text](image.png)
+
+## 🚀 Features
+
+- 💬 AI chatbot that answers based on portfolio data
+- 📚 RAG pipeline using LangChain and Astra DB vector search
+- 🔍 Embedding with Hugging Face’s `all-MiniLM-L6-v2`
+- 🧠 Response generation via Hugging Face LLM (`zephyr-7b-beta`, etc.)
+- 💡 Fully styled with Tailwind CSS
+- ⚙️ Built on Next.js App Router architecture
+
+---
+
+## 🛠️ Tech Stack
+
+| Tech                     | Purpose                                 |
+|--------------------------|-----------------------------------------|
+| [Next.js](https://nextjs.org/)         | React-based frontend framework        |
+| [LangChain](https://www.langchain.com/) | Contextual RAG and vector querying    |
+| [Astra DB](https://www.datastax.com/astra)       | Vector database & document store     |
+| [Hugging Face Inference API](https://huggingface.co/inference-api) | Embeddings + LLM chat completion     |
+| [Tailwind CSS](https://tailwindcss.com/)         | Styling and responsive layout         |
+
+---
+
+## 📁 Folder Structure
 
 ```bash
+ai-portfolio/
+├── app/
+│   ├── api/
+│   │   └── chat/
+│   │       └── route.js         # API handler using LangChain + HuggingFace
+│   ├── layout.jsx               # Root layout
+│   └── page.jsx                 # Chat UI with Tailwind styling
+├── components/
+│   └── Header.jsx               # Header/navbar component
+├── db/
+│   └── loadToDb.js              # Script to load portfolio chunks into Astra DB
+├── public/
+│   └── ChatGPT.png              # Background image or assets
+├── sample-data.json            # Project/portfolio content to be vectorized
+├── .env.local                  # Environment variables (not committed)
+├── package.json
+├── tailwind.config.js
+├── postcss.config.js
+├── README.md
+
+
+⚙️ Environment Setup
+bash
+Copy
+Edit
+# 1. Clone the repo
+git clone https://github.com/nik-13204/ai-portfolio.git
+cd ai-portfolio
+
+# 2. Install dependencies
+npm install
+
+# 3. Add environment variables
+cp .env.example .env.local
+# Fill in HUGGINGFACE_API_KEY and ASTRA credentials
+
+# 4. Vectorize and load your data
+node db/loadToDb.js
+
+# 5. Run locally
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+🔐 Example .env.local
+env
+Copy
+Edit
+HUGGINGFACE_API_KEY=your_huggingface_api_key
+ASTRA_DB_APPLICATION_TOKEN=your_astra_app_token
+ASTRA_DB_API_ENDPOINT=https://your-region.apps.astra.datastax.com
+✨ How It Works
+User sends a question via chat input
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Message is embedded via HuggingFace (MiniLM)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Top 5 related document chunks are retrieved from Astra DB
 
-## Learn More
+These are used as context in a prompt passed to a Hugging Face LLM
 
-To learn more about Next.js, take a look at the following resources:
+AI responds based on your actual portfolio content
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+👨‍💻 Author
+Nikhil Saini
