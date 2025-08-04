@@ -38,14 +38,12 @@ ai-portfolio/
 │   │       └── route.js         # API handler using LangChain + HuggingFace
 │   ├── layout.jsx               # Root layout
 │   └── page.jsx                 # Chat UI with Tailwind styling
-├── components/
-│   └── Header.jsx               # Header/navbar component
 ├── db/
-│   └── loadToDb.js              # Script to load portfolio chunks into Astra DB
+│   ├── loadToDb.js              # Script to load portfolio chunks into Astra DB
+|   └──sample-data.json          # Project/portfolio content to be vectorized
 ├── public/
-│   └── ChatGPT.png              # Background image or assets
-├── sample-data.json            # Project/portfolio content to be vectorized
-├── .env.local                  # Environment variables (not committed)
+│   └── ChatGPT.png              # Background image or assets                                
+├── .env.                        # Environment variables (not committed)
 ├── package.json
 ├── tailwind.config.js
 ├── postcss.config.js
