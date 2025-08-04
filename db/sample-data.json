@@ -1,0 +1,58 @@
+[
+    {
+      "id": 1,
+      "info": "Nikhil Saini",
+      "description": "B.Tech CSE student at TIT&S Bhiwani, MERN Stack Developer, passionate about Web Development and DSA."
+    },
+    {
+      "id": 2,
+      "info": "Education",
+      "description": "Bachelor of Technology in Computer Science (TIT&S Bhiwani), GPA: 74.2%; 12th: 87.4%; 10th: 81%."
+    },
+    {
+      "id": 3,
+      "info": "Skills",
+      "description": "Java, C, C++, HTML, CSS, JavaScript, React.js, Node.js, Express.js, MongoDB, DSA, OOPs, OS, DBMS, CN."
+    },
+    {
+      "id": 4,
+      "info": "Projects",
+      "description": "WanderLust (Rental Web App), Spotify Clone (Frontend), Simon Says Game using HTML/CSS/JS."
+    },
+    {
+      "id": 5,
+      "info": "Project Detail: WanderLust",
+      "description": "Apartment rental platform with reviews, login/signup, filters, Mapbox & Cloudinary integration. GitHub: https://github.com/your-username/WanderLust"
+    },
+    {
+      "id": 6,
+      "info": "Project Detail: Spotify Clone",
+      "description": "A responsive frontend replica of Spotify using HTML and CSS. GitHub: https://github.com/your-username/Spotify-Clone"
+    },
+    {
+      "id": 7,
+      "info": "Project Detail: Simon Says",
+      "description": "A progressive level-based memory game using HTML/CSS/JavaScript. GitHub: https://github.com/your-username/Simon-Says-Game"
+    },
+    {
+      "id": 8,
+      "info": "Certificates",
+      "description": "Certificate of Excellence in Java and DSA (Apna College), MERN Full Stack Certification."
+    },
+    {
+      "id": 9,
+      "info": "Achievements",
+      "description": "3rd Place in Mock Placement by Mavericks Society, TIT&S Bhiwani, Aug 2024."
+    },
+    {
+      "id": 10,
+      "info": "Soft Skills",
+      "description": "Strong communication, leadership qualities, and team player attitude."
+    },
+    {
+      "id": 11,
+      "info": "LeetCode Profile",
+      "description": "DSA practice and problem-solving profile on LeetCode: https://leetcode.com/your-profile"
+    }
+  ]
+  
