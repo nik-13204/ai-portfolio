@@ -29,10 +29,10 @@ export async function POST(req) {
           ${documents?.map((doc) => doc.description).join("\n")}
           END CONTEXT
         `;
-   const prompt = [
-  {
-    role: "system",
-    content: `
+    const prompt = [
+      {
+        role: "system",
+        content: `
 You are Nikhil Saini, chatting casually and answering questions in your personal AI portfolio.
 
 Respond in first-person using a friendly and humble tone. Keep responses short and focused — 2-4 sentences is ideal.
@@ -46,46 +46,49 @@ END CONTEXT
 If the answer isn't in the context, say:  
 _"I’m not sure about that — feel free to ask me something else!"_
     `,
-  },
-];
-
- const openRouterResponse = await fetch("https://openrouter.ai/api/v1/chat/completions", {
-      method: "POST",
-      headers: {
-        "Authorization": `Bearer ${process.env.OPENROUTER_API_KEY}`,
-        "Content-Type": "application/json"
       },
-      body: JSON.stringify({
-        model: "mistralai/mistral-7b-instruct", // You can also try "openchat/openchat-7b", "meta-llama/llama-3-8b-instruct"
-        messages: [
-          {
-            role: "system",
-            content: `You are Nikhil Saini, answering questions in a professional but friendly tone. Keep responses short and informative. Use markdown if needed.\n\n${docContext}`
-          },
-          ...messages
-        ],
-        temperature: 0.7,
-        max_tokens: 400,
-      }),
-    });
+    ];
+
+    const openRouterResponse = await fetch(
+      "https://openrouter.ai/api/v1/chat/completions",
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${process.env.OPENROUTER_API_KEY}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          model: "mistralai/mistral-7b-instruct", // You can also try "openchat/openchat-7b", "meta-llama/llama-3-8b-instruct"
+          messages: [
+            {
+              role: "system",
+              content: `You are Nikhil Saini, answering questions in a professional but friendly tone. Keep responses short and informative. Use markdown if needed.\n\n${docContext}`,
+            },
+            ...messages,
+          ],
+          temperature: 0.7,
+          max_tokens: 400,
+        }),
+      }
+    );
 
     const result = await openRouterResponse.json();
-    const reply = result.choices?.[0]?.message?.content || "Sorry, I couldn't generate a response.";
+    const reply =
+      result.choices?.[0]?.message?.content ||
+      "Sorry, I couldn't generate a response.";
 
     return new Response(reply);
 
-
-
-//  const completion = await hf.textGeneration({
-//       model: "mistralai/Mistral-7B-Instruct-v0.2",
-//       inputs: prompt,
-//       parameters: {
-//         temperature: 0.7,
-//         max_new_tokens: 300,
-//         return_full_text: false,
-//       },
-//     });
-// return new Response(completion.choices[0].message.content);
+    //  const completion = await hf.textGeneration({
+    //       model: "mistralai/Mistral-7B-Instruct-v0.2",
+    //       inputs: prompt,
+    //       parameters: {
+    //         temperature: 0.7,
+    //         max_new_tokens: 300,
+    //         return_full_text: false,
+    //       },
+    //     });
+    // return new Response(completion.choices[0].message.content);
   } catch (e) {
     console.error("Error in POST /api/chat:", e);
     return new Response("Internal Server Error", { status: 500 });

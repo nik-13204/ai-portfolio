@@ -14,7 +14,7 @@ export default function Home() {
     setInput("");
     setLoading(true);
 
-    const res = await fetch("/api/chat", {
+    const res = await fetch(process.env.NEXT_PUBLIC_API_URL, {
       method: "POST",
       body: JSON.stringify({ messages: newMessages }),
       headers: { "Content-Type": "application/json" },
