@@ -35,7 +35,7 @@ export default function Home() {
 
       <div className="relative z-10 px-4 w-full h-screen flex flex-col items-center">
         <h1 className="text-4xl md:text-5xl font-bold mt-10 text-purple-300 drop-shadow-lg text-center">
-          ✨ Nikhil's AI Portfolio
+          ✨ Nikhil&apos;s AI Portfolio
         </h1>
 
         {/* Message Area */}
